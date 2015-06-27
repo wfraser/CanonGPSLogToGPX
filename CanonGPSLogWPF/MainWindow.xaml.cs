@@ -66,6 +66,7 @@ namespace CanonGPSLogWPF
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
             MessageBoxResult result = MessageBox.Show("File successfully converted. Show resulting file?", "Success", MessageBoxButton.YesNo, MessageBoxImage.Information, MessageBoxResult.No);

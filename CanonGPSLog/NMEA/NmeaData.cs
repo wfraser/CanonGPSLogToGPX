@@ -24,10 +24,11 @@ namespace CanonGPSLog.NMEA
                 string checksum = line.Substring(starPos + 1);
                 line = line.Substring(0, starPos);
 
-                bool valid = ValidateChecksum(line, checksum);
-                if (!valid)
+                byte readSum = byte.Parse(checksum, System.Globalization.NumberStyles.HexNumber);
+                byte calculatedSum = CalculateChecksum(line);
+                if (readSum != calculatedSum)
                 {
-                    throw new InvalidDataException(string.Format("Line {0}: invalid checksum", lineNumber));
+                    throw new InvalidDataException(string.Format("Line {0}: checksum mismatch - calculated \"{1:X}\", read \"{2:X}\" in file", lineNumber, calculatedSum, readSum));
                 }
 
                 string[] fields = line.Split(',');
@@ -44,7 +45,17 @@ namespace CanonGPSLog.NMEA
                         throw new InvalidDataException(string.Format("Line {0}: unknown sentence \"{1}\"", lineNumber, fields[0]));
                 }
 
-                sentence.Read(fields);
+                try
+                {
+                    sentence.Read(fields);
+                }
+                catch (InvalidDataException ex)
+                {
+                    throw new InvalidDataException(
+                        string.Format("Data error on line {0}: {1}", lineNumber, ex.Message),
+                        ex
+                        );
+                }
 
                 sentences.Add(sentence);
             }
@@ -52,20 +63,15 @@ namespace CanonGPSLog.NMEA
             return sentences;
         }
 
-        private static bool ValidateChecksum(string line, string checksum)
+        private static byte CalculateChecksum(string line)
         {
-            if (line[0] != '$')
-                return false;
-
-            byte expectedSum = byte.Parse(checksum, System.Globalization.NumberStyles.HexNumber);
-
             byte sum = 0;
             for (int i = 1; i < line.Length; i++)
             {
                 sum ^= (byte)line[i];
             }
 
-            return (sum == expectedSum);
+            return sum;
         }
     }
 }
