@@ -30,10 +30,16 @@ namespace CanonGPSLog.NMEA
 
         public void Read(string[] fields)
         {
+            if (fields.Length != 13)
+            {
+                throw new InvalidDataException(string.Format("$GPRMC sentence needs to have 13 fields, but {0} were found.", fields.Length));
+            }
+
             int n = 0;
 
-            if (fields[n] == "$GPRMC")
-                n++;
+            if (fields[n] != "$GPRMC")
+                throw new InvalidDataException(string.Format("Expected \"$GPRMC\", found \"{0}\"", fields[n]));
+            n++;
 
             TimeSpan time = ParseTime(fields[n]);
             n++;
