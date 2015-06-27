@@ -1,0 +1,26 @@
+﻿<Window x:Class="CanonGPSLogWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Canon GPS Track to GPX Converter" Height="150" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center">Canon .LOG File:</TextBlock>
+                <TextBox x:Name="InputPath" Width="200" Margin="5"/>
+                <Button Margin="-5,5,5,5" Click="Browse_Click">Browse</Button>
+            </StackPanel>
+            <Button HorizontalAlignment="Center" Margin="5" Padding="5" Click="Convert_Click">Convert to GPX</Button>
+        </StackPanel>
+    </Grid>
+</Window>

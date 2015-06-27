@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanonGPSLog", "CanonGPSLog\CanonGPSLog.csproj", "{823E03CA-939D-40E1-B815-3ABA20EB72C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanonGPSLogWPF", "CanonGPSLogWPF\CanonGPSLogWPF.csproj", "{16FDE11C-E3BC-4401-8658-E659ACF8B640}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{823E03CA-939D-40E1-B815-3ABA20EB72C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{823E03CA-939D-40E1-B815-3ABA20EB72C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{823E03CA-939D-40E1-B815-3ABA20EB72C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{823E03CA-939D-40E1-B815-3ABA20EB72C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16FDE11C-E3BC-4401-8658-E659ACF8B640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16FDE11C-E3BC-4401-8658-E659ACF8B640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16FDE11C-E3BC-4401-8658-E659ACF8B640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16FDE11C-E3BC-4401-8658-E659ACF8B640}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
