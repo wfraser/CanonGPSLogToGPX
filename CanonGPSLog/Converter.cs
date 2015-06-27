@@ -20,8 +20,7 @@ namespace CanonGPSLog
 
                 if (sentences.Count % 2 != 0)
                 {
-                    Console.WriteLine("Error: odd number of sentences");
-                    return;
+                    throw new InvalidDataException("Error: odd number of NMEA sentences");
                 }
 
                 for (int i = 0, n = sentences.Count; i < n; i += 2)
@@ -31,8 +30,7 @@ namespace CanonGPSLog
 
                     if (gga == null || rmc == null)
                     {
-                        Console.WriteLine("Error: input is expected to be only $GPGGA followed by $GPRMC, alternating.");
-                        return;
+                        throw new InvalidDataException("Error: input is expected to be only $GPGGA followed by $GPRMC, alternating.");
                     }
 
                     var point = new GPX.TrackPoint()
