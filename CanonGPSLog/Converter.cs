@@ -12,7 +12,7 @@ namespace CanonGPSLog
         public static void LogToGPX(string inputPath, string outputPath)
         {
             var gpx = new GPX();
-            gpx.Creator = "Canon GPS Log to GPX Converter by github.com/wfraser";
+            gpx.Creator = "Canon GPS Log to GPX Converter - https://github.com/wfraser/CanonGPSLogToGPX";
 
             using (var reader = new StreamReader(inputPath))
             {
